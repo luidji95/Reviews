@@ -46,11 +46,29 @@ const Data = [
 
 function App() {
   const [employee, setEmployee] = useState(Data);
+  const [count, setCount] = useState(0);
 
 
   const SupriseFunction = () => {
     console.log('aa');
   }
+
+  const prevEmployee = () => {
+    if (count <= 0){
+      setCount(employee.length - 1);
+    } else {
+      setCount(count - 1);
+    }
+  }
+
+  const nextEmployee = () => {
+    if (count >= employee.length - 1) {
+      setCount(0);
+    } else {
+      setCount(count + 1); 
+    }
+  };
+  
 
   return (
     <>
@@ -65,6 +83,10 @@ function App() {
           </div>
           <div className='short-review'>
             <p className='review'>{emp.review}</p>
+          </div>
+          <div className='buttons'>
+            <button onClick={prevEmployee}>← Prev</button>
+            <button onClick={nextEmployee}>Next →</button>
           </div>
           <button 
             className='review-item' 
