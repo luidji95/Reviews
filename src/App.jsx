@@ -50,7 +50,8 @@ function App() {
 
 
   const SupriseFunction = () => {
-    console.log('aa');
+    const radnomIndex = Math.floor(Math.random() * employee.length);
+    setCount(radnomIndex);
   }
 
   const prevEmployee = () => {
